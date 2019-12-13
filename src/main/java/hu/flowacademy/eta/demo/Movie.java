@@ -19,6 +19,9 @@ public class Movie {
 
     private int length;
 
+    public Movie() {
+    }
+
     public Movie(String title, LocalDate releaseDate, String directorName, Style style, boolean wonOscar, int length) {
         this.title = title;
         this.releaseDate = releaseDate;

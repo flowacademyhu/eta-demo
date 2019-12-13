@@ -13,6 +13,10 @@ public class MovieResource {
 
     private Map<UUID, Movie> movies = new HashMap<>();
 
+    /**
+     *
+     * @return
+     */
     @GetMapping("/movies")
     public List<Movie> getMovies() {
         return new ArrayList<>(movies.values());
@@ -36,7 +40,8 @@ public class MovieResource {
     @PutMapping("/movie/")
     public Movie update(@RequestBody Movie movie) {
         if (movie.getId() != null) {
-            return movies.put(movie.getId(), movie);
+            movies.put(movie.getId(), movie);
+            return movie;
         }
         return null;
     }
