@@ -1,5 +1,6 @@
 package hu.flowacademy.eta.demo.tvshow;
 
+import hu.flowacademy.eta.demo.exceptions.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -19,7 +20,7 @@ public class TvShowService {
 
     public TvShow create(TvShow tvShow) {
         if (tvShow.getId() != null) {
-            throw new RuntimeException("missing id");
+            throw new ValidationException("missing id");
         }
         validateTvShow(tvShow);
 
@@ -37,10 +38,10 @@ public class TvShowService {
 
     private void validateTvShow(TvShow tvShow) {
         if (StringUtils.isEmpty(tvShow.getTitle())) {
-            throw new RuntimeException("missing title");
+            throw new ValidationException("missing title");
         }
         if (StringUtils.isEmpty(tvShow.getShowrunnerName())) {
-            throw new RuntimeException("missing showrunner's name");
+            throw new ValidationException("missing showrunner's name");
         }
     }
 
