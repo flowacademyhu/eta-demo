@@ -53,4 +53,9 @@ public class TvShow {
     public void setSeasons(int seasons) {
         this.seasons = seasons;
     }
+
+    public TvShow id(UUID id) {
+        this.id = id;
+        return this;
+    }
 }

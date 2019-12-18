@@ -1,7 +1,6 @@
 package hu.flowacademy.eta.demo.tvshow;
 
 import hu.flowacademy.eta.demo.exceptions.ValidationException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -11,8 +10,11 @@ import java.util.UUID;
 @Service
 public class TvShowService {
 
-    @Autowired
-    private TvShowRepository tvShowRepository;
+    private final TvShowRepository tvShowRepository;
+
+    public TvShowService(TvShowRepository tvShowRepository) {
+        this.tvShowRepository = tvShowRepository;
+    }
 
     public List<TvShow> findAll() {
         return tvShowRepository.findAll();
@@ -20,7 +22,7 @@ public class TvShowService {
 
     public TvShow create(TvShow tvShow) {
         if (tvShow.getId() != null) {
-            throw new ValidationException("missing id");
+            throw new ValidationException("expected id value is null, instead of " + tvShow.getId());
         }
         validateTvShow(tvShow);
 
