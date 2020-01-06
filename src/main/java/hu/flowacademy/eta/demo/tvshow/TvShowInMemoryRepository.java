@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 
 @Repository
-public class TvShowRepository {
+public class TvShowInMemoryRepository {
 
     private Map<UUID, TvShow> data = new HashMap<>();
 

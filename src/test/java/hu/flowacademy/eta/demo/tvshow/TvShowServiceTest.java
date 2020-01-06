@@ -21,7 +21,7 @@ public class TvShowServiceTest {
     TvShowService tvShowService;
 
     @Mock
-    TvShowRepository tvShowRepository;
+    TvShowInMemoryRepository tvShowInMemoryRepository;
 
     @Before
     public void init() {
@@ -30,7 +30,7 @@ public class TvShowServiceTest {
 
     @Test
     public void findAll() {
-        when(tvShowRepository.findAll()).thenReturn(List.of(new TvShow()));
+        when(tvShowInMemoryRepository.findAll()).thenReturn(List.of(new TvShow()));
         List<TvShow> shows = tvShowService.findAll();
         assertEquals(1, shows.size());
     }
@@ -39,7 +39,7 @@ public class TvShowServiceTest {
     public void create() {
         TvShow tvShow = getTvShow();
 
-        when(tvShowRepository.save(tvShow)).thenReturn(getTvShow().id(UUID.randomUUID()));
+        when(tvShowInMemoryRepository.save(tvShow)).thenReturn(getTvShow().id(UUID.randomUUID()));
 
         TvShow saved = tvShowService.create(tvShow);
         assertNotNull(saved);
@@ -74,7 +74,7 @@ public class TvShowServiceTest {
     public void update() {
         UUID id = UUID.randomUUID();
         var tvshow = getTvShow().id(id);
-        when(tvShowRepository.update(tvshow)).thenReturn(tvshow);
+        when(tvShowInMemoryRepository.update(tvshow)).thenReturn(tvshow);
         TvShow updated = tvShowService.update(tvshow);
         assertNotNull(updated);
         assertNotNull(updated.getId());

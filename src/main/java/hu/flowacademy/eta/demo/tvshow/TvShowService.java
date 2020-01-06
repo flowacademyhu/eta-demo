@@ -10,14 +10,16 @@ import java.util.UUID;
 @Service
 public class TvShowService {
 
-    private final TvShowRepository tvShowRepository;
+    private final TvShowInMemoryRepository tvShowInMemoryRepository;
+    private final TvShowJPARepository tvShowJPARepository;
 
-    public TvShowService(TvShowRepository tvShowRepository) {
-        this.tvShowRepository = tvShowRepository;
+    public TvShowService(TvShowInMemoryRepository tvShowInMemoryRepository, TvShowJPARepository tvShowJPARepository) {
+        this.tvShowInMemoryRepository = tvShowInMemoryRepository;
+        this.tvShowJPARepository = tvShowJPARepository;
     }
 
     public List<TvShow> findAll() {
-        return tvShowRepository.findAll();
+        return tvShowJPARepository.findAll();
     }
 
     public TvShow create(TvShow tvShow) {
@@ -26,7 +28,7 @@ public class TvShowService {
         }
         validateTvShow(tvShow);
 
-        return tvShowRepository.save(tvShow);
+        return tvShowJPARepository.save(tvShow);
     }
 
     public TvShow update(TvShow tvShow) {
@@ -35,7 +37,7 @@ public class TvShowService {
         }
         validateTvShow(tvShow);
 
-        return tvShowRepository.update(tvShow);
+        return tvShowJPARepository.save(tvShow);
     }
 
     private void validateTvShow(TvShow tvShow) {
@@ -48,6 +50,6 @@ public class TvShowService {
     }
 
     public void delete(String id) {
-        tvShowRepository.delete(UUID.fromString(id));
+        tvShowJPARepository.deleteById(UUID.fromString(id));
     }
 }

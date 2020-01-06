@@ -1,17 +1,26 @@
 package hu.flowacademy.eta.demo.tvshow;
 
+import javax.persistence.*;
 import java.util.UUID;
 
+@Entity
+@Table
 public class TvShow {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @Column(length = 50)
     private String showrunnerName;
 
+    @Column
     private String title;
 
+    @Column
     private Long length;
 
+    @Column
     private int seasons;
 
     public UUID getId() {
