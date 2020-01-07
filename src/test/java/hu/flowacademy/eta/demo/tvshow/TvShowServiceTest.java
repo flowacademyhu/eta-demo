@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.Random;
 
 
 public class TvShowServiceTest {
@@ -39,7 +39,7 @@ public class TvShowServiceTest {
     public void create() {
         TvShow tvShow = getTvShow();
 
-        when(tvShowInMemoryRepository.save(tvShow)).thenReturn(getTvShow().id(UUID.randomUUID()));
+        when(tvShowInMemoryRepository.save(tvShow)).thenReturn(getTvShow().id(new Random().nextLong()));
 
         TvShow saved = tvShowService.create(tvShow);
         assertNotNull(saved);
@@ -50,7 +50,7 @@ public class TvShowServiceTest {
 
     @Test(expected = ValidationException.class)
     public void createNegative() {
-        tvShowService.create(new TvShow().id(UUID.randomUUID()));
+        tvShowService.create(new TvShow().id(new Random().nextLong()));
     }
 
     @Test(expected = ValidationException.class)
@@ -67,12 +67,12 @@ public class TvShowServiceTest {
 
     @Test
     public void delete() {
-        tvShowService.delete(UUID.randomUUID().toString());
+        tvShowService.delete(new Random().nextLong());
     }
 
     @Test
     public void update() {
-        UUID id = UUID.randomUUID();
+        var id = new Random().nextLong();
         var tvshow = getTvShow().id(id);
         when(tvShowInMemoryRepository.update(tvshow)).thenReturn(tvshow);
         TvShow updated = tvShowService.update(tvshow);

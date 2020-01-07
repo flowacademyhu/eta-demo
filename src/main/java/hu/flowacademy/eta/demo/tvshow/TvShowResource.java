@@ -29,7 +29,7 @@ public class TvShowResource {
     }
 
     @DeleteMapping("/show/{id}")
-    public ResponseEntity<Void> deleteShow(@PathVariable String id) {
+    public ResponseEntity<Void> deleteShow(@PathVariable Long id) {
         tvShowService.delete(id);
         return ResponseEntity.ok().build();
     }

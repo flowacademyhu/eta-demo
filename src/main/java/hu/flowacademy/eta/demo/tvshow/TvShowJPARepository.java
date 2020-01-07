@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.UUID;
 
 /**
  * TvShowJPARepository extends the JpaRepository<{entity class},{type of the entity class's id}>
@@ -14,7 +13,7 @@ import java.util.UUID;
  * &#64;Repository - Special component for data storage
  */
 @Repository
-public interface TvShowJPARepository extends JpaRepository<TvShow, UUID> {
+public interface TvShowJPARepository extends JpaRepository<TvShow, Long> {
 
     /**
      * <b>findByTitle</b> represents a SQL query something like<br><pre>SELECT * FROM tv_show WHERE title=?1</pre>

@@ -26,7 +26,7 @@ public class TvShow {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tv_show_seq")
     @SequenceGenerator(name = "tv_show_seq", sequenceName = "tv_show_seq", allocationSize = 1, initialValue = 1)
-    private UUID id;
+    private Long id;
 
     /**
      * An example for column definition
@@ -45,11 +45,11 @@ public class TvShow {
     @Column
     private int seasons;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -85,7 +85,7 @@ public class TvShow {
         this.seasons = seasons;
     }
 
-    public TvShow id(UUID id) {
+    public TvShow id(Long id) {
         this.id = id;
         return this;
     }

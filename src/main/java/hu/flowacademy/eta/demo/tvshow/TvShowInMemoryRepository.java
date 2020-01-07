@@ -7,14 +7,14 @@ import java.util.*;
 @Repository
 public class TvShowInMemoryRepository {
 
-    private Map<UUID, TvShow> data = new HashMap<>();
+    private Map<Long, TvShow> data = new HashMap<>();
 
     public List<TvShow> findAll() {
         return new ArrayList<>(data.values());
     }
 
     public TvShow save(TvShow tvShow) {
-        UUID id = UUID.randomUUID();
+        var id = new Random().nextLong();
         tvShow.setId(id);
         data.put(id, tvShow);
         return tvShow;
@@ -25,7 +25,7 @@ public class TvShowInMemoryRepository {
         return tvShow;
     }
 
-    public void delete(UUID fromString) {
+    public void delete(Long fromString) {
         data.remove(fromString);
     }
 }

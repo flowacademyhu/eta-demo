@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class TvShowService {
@@ -49,7 +48,7 @@ public class TvShowService {
         }
     }
 
-    public void delete(String id) {
-        tvShowJPARepository.deleteById(UUID.fromString(id));
+    public void delete(Long id) {
+        tvShowJPARepository.deleteById(id);
     }
 }
