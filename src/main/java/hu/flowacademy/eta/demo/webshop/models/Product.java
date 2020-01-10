@@ -19,6 +19,8 @@ import java.time.LocalDateTime;
 public class Product {
 
     @Id
+    @GeneratedValue(generator = "product_seq", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "product_seq", allocationSize = 1, sequenceName = "product_seq")
     private Long id;
 
     @Column

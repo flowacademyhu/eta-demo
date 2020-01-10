@@ -5,8 +5,7 @@
     "amount": 1000,
     "count": 1,
     "status": "new",
-    "createdBy": "someone",
-    "createdAt": "2020-01-01 11:23:00"
+    "createdBy": "someone"
   },
   {
     "productName": "my favorite gpu",
@@ -14,8 +13,7 @@
     "amount": 1000,
     "count": 1,
     "status": "new",
-    "createdBy": "someone",
-    "createdAt": "2020-01-01 11:23:00"
+    "createdBy": "someone"
   },
   {
     "productName": "my favorite ram",
@@ -23,7 +21,6 @@
     "amount": 100,
     "count": 2,
     "status": "new",
-    "createdBy": "someone",
-    "createdAt": "2020-01-01 11:23:00"
+    "createdBy": "someone"
   }
 ]
