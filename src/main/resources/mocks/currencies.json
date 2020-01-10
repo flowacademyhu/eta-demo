@@ -1,0 +1,22 @@
+[
+  {
+    "name": "HUF",
+    "precision": 0
+  },
+  {
+    "name": "USD",
+    "precision": 2
+  },
+  {
+    "name": "GBP",
+    "precision": 2
+  },
+  {
+    "name": "EUR",
+    "precision": 2
+  },
+  {
+    "name": "PHP",
+    "precision": 2
+  }
+]

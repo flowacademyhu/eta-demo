@@ -1,0 +1,29 @@
+[
+  {
+    "productName": "my favorite cpu",
+    "details": "intel i5 something",
+    "amount": 1000,
+    "count": 1,
+    "status": "new",
+    "createdBy": "someone",
+    "createdAt": "2020-01-01 11:23:00"
+  },
+  {
+    "productName": "my favorite gpu",
+    "details": "nvidia geforce 1080 Ti",
+    "amount": 1000,
+    "count": 1,
+    "status": "new",
+    "createdBy": "someone",
+    "createdAt": "2020-01-01 11:23:00"
+  },
+  {
+    "productName": "my favorite ram",
+    "details": "kingston DDR4 16GB",
+    "amount": 100,
+    "count": 2,
+    "status": "new",
+    "createdBy": "someone",
+    "createdAt": "2020-01-01 11:23:00"
+  }
+]
