@@ -8,3 +8,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     hibernate:
       ddl-auto: create-drop
+
+base:
+  folder:
+    path: /tmp/flow/

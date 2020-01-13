@@ -22,8 +22,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Throwable.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public List<String> youShallNotPass() {
-        System.err.println(":'(");
+    public List<String> youShallNotPass(Throwable t) {
+        System.err.println(":'( " + t.getMessage());
         return List.of("no no.... Mr. Error not here");
     }
 
