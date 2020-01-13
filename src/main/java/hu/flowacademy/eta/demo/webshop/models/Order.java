@@ -1,5 +1,6 @@
 package hu.flowacademy.eta.demo.webshop.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,6 +34,6 @@ public class Order {
     @OneToOne
     private ShippingAddress shippingAddress;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
     private List<Product> products;
 }
