@@ -16,13 +16,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   private BCryptPasswordEncoder passwordEncoder;
 
   @Autowired
+  private CustomUserDetailsService customUserDetailsService;
+
+  @Autowired
   public void globalUserDetails(final AuthenticationManagerBuilder auth) throws Exception {
+      auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder);
     // @formatter:off
-	auth.inMemoryAuthentication()
-	  .withUser("john").password(passwordEncoder.encode("123")).roles("USER").and()
-	  .withUser("tom").password(passwordEncoder.encode("111")).roles("ADMIN").and()
-	  .withUser("user1").password(passwordEncoder.encode("pass")).roles("USER").and()
-	  .withUser("admin").password(passwordEncoder.encode("nimda")).roles("ADMIN");
+//	auth.inMemoryAuthentication()
+//	  .withUser("john").password(passwordEncoder.encode("123")).roles("USER").and()
+//	  .withUser("tom").password(passwordEncoder.encode("111")).roles("ADMIN").and()
+//	  .withUser("user1").password(passwordEncoder.encode("pass")).roles("USER").and()
+//	  .withUser("admin").password(passwordEncoder.encode("nimda")).roles("ADMIN");
     }// @formatter:on
 
   @Override
